@@ -36,6 +36,9 @@ const Home = () => {
                     } else if (sectionClass.includes('gallery-section')) {
                         section.classList.add('animate-gallery');
                         console.log('Added animate-gallery class');
+                    } else if (sectionClass.includes('instagram-section')) {
+                        section.classList.add('animate-instagram');
+                        console.log('Added animate-instagram class');
                     } else if (sectionClass.includes('contact-section')) {
                         section.classList.add('animate-contact');
                         console.log('Added animate-contact class');
@@ -48,7 +51,7 @@ const Home = () => {
         }, observerOptions);
 
         // Observe all sections
-        const sections = document.querySelectorAll('.about-section, .event-section, .menu-section, .gallery-section, .contact-section');
+        const sections = document.querySelectorAll('.about-section, .event-section, .menu-section, .gallery-section, .instagram-section, .contact-section');
         sections.forEach(section => {
             observer.observe(section);
         });
@@ -252,22 +255,68 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Gallery Section */}
+            {/* ! Gallery Section */}
             <section className="gallery-section">
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
                             <div className="gallery-content">
-                                <h2 className="gallery-heading">EXPLORE OUR GALLERY</h2>
+                                <h2 className="gallery-heading">GALLERY</h2>
                                 <h3 className="gallery-subheading">
-                                    Discover & Experience Our
+                                    Visual Feast
                                     <TypewriterText words={galleryWords} />
                                 </h3>
                             </div>
                         </div>
                     </div>
-
                     <GallerySlider />
+                </div>
+            </section>
+
+            {/* ! Instagram Section */}
+            <section className="instagram-section">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="instagram-content">
+                                <h2 className="instagram-heading">FOLLOW OUR JOURNEY</h2>
+                                <h3 className="instagram-subheading">Latest from Instagram</h3>
+                                <p className="instagram-para">
+                                    Stay connected with us on Instagram for behind-the-scenes moments, 
+                                    daily specials, and a glimpse into the Elysium experience.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="instagram-embed-container">
+                                <iframe
+                                    src="https://www.instagram.com/elysiumdallas/embed"
+                                    title="Elysium Restaurant Instagram Feed"
+                                    className="instagram-iframe"
+                                    frameBorder="0"
+                                    scrolling="no"
+                                    allowTransparency={true}
+                                />
+                                <div className="instagram-fallback">
+                                    <div className="instagram-placeholder">
+                                        <div className="instagram-icon">📷</div>
+                                        <h4>Follow us on Instagram</h4>
+                                        <p>@elysium_restaurant</p>
+                                        <a 
+                                            href="https://www.instagram.com/elysiumdallas/" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="instagram-link"
+                                        >
+                                            View Profile
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 

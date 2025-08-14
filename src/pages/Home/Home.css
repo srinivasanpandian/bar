@@ -960,7 +960,7 @@
 }
 
 .event-subheading::before {
-    content: '🎉';
+    content: '';
     position: absolute;
     left: -35px;
     top: 50%;
@@ -1606,7 +1606,7 @@ section.menu-section.animate-menu .menu-subheading {
 }
 
 .gallery-subheading::before {
-    content: '📸';
+    content: '';
     position: absolute;
     left: -45px;
     top: 50%;
@@ -2143,6 +2143,11 @@ section.menu-section.animate-menu .menu-subheading {
 .gallery-content,
 .gallery-heading,
 .gallery-subheading,
+.instagram-content,
+.instagram-heading,
+.instagram-subheading,
+.instagram-para,
+.instagram-embed-container,
 .contact-content,
 .contact-heading,
 .social-buttons {
@@ -2156,6 +2161,7 @@ section.menu-section.animate-menu .menu-subheading {
 .animate-event .event-content,
 .animate-menu .menu-content,
 .animate-gallery .gallery-content,
+.animate-instagram .instagram-content,
 .animate-contact .contact-content {
     transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -2205,10 +2211,336 @@ section.menu-section.animate-menu .menu-subheading {
     transition-delay: 0.2s;
 }
 
+.animate-instagram .instagram-heading {
+    transition-delay: 0.1s;
+}
+.animate-instagram .instagram-subheading {
+    transition-delay: 0.2s;
+}
+.animate-instagram .instagram-para {
+    transition-delay: 0.3s;
+}
+.animate-instagram .instagram-embed-container {
+    transition-delay: 0.4s;
+}
+
 .animate-contact .contact-heading {
     transition-delay: 0.1s;
 }
 
 .animate-contact .social-buttons {
     transition-delay: 0.2s;
+}
+
+/* Instagram Section */
+.instagram-section {
+    padding: 80px 0;
+    background: #000000;
+    color: #F5F1DA;
+    position: relative;
+    overflow: hidden;
+}
+
+.instagram-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 25% 75%, rgba(254, 214, 89, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 25%, rgba(190, 128, 17, 0.03) 0%, transparent 50%);
+    z-index: 0;
+    animation: instagramBackgroundPulse 16s ease-in-out infinite;
+}
+
+@keyframes instagramBackgroundPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1) rotate(0deg);
+    }
+    33% {
+        opacity: 0.5;
+        transform: scale(1.03) rotate(120deg);
+    }
+    66% {
+        opacity: 0.4;
+        transform: scale(1.01) rotate(240deg);
+    }
+}
+
+.instagram-content {
+    text-align: center;
+    max-width: 85%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(70px) scale(0.9);
+    transition: all 1.4s ease-out;
+    position: relative;
+    z-index: 1;
+}
+
+.instagram-heading {
+    font-family: "Jost", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    color: #F5F1DA;
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px) scale(0.85);
+    filter: blur(4px);
+    transition: all 1.5s ease-out;
+}
+
+.instagram-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #FED659, #BE8011, #FED659);
+    transform: translateX(-50%);
+    transition: width 1.4s ease-out 1.4s;
+}
+
+.instagram-subheading {
+    font-family: "Jost", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #FED659;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 1.2s ease-out;
+}
+
+.instagram-subheading::before {
+    content: '';
+    position: absolute;
+    left: -45px;
+    top: 50%;
+    transform: translateY(-50%) scale(0) rotate(-90deg);
+    opacity: 0;
+    transition: all 0.9s ease-out 1.6s;
+}
+
+.instagram-para {
+    font-family: "Jost", sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #F5F1DA;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    filter: blur(2px);
+    transition: all 1.3s ease-out;
+}
+
+
+
+.instagram-embed-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(80px) scale(0.9);
+    transition: all 1.6s ease-out;
+}
+
+.instagram-iframe {
+    width: 100%;
+    height: 600px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: #1a1a1a;
+    transition: all 0.4s ease-in-out;
+}
+
+.instagram-iframe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(254, 214, 89, 0.2);
+}
+
+.instagram-fallback {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    border-radius: 20px;
+    border: 2px solid rgba(254, 214, 89, 0.3);
+}
+
+.instagram-placeholder {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.instagram-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: instagramIconFloat 3s ease-in-out infinite;
+}
+
+@keyframes instagramIconFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.1);
+    }
+}
+
+.instagram-placeholder h4 {
+    font-family: "Jost", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #FED659;
+    margin-bottom: 0.5rem;
+}
+
+.instagram-placeholder p {
+    font-family: "Jost", sans-serif;
+    font-size: 1.1rem;
+    color: #F5F1DA;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+.instagram-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #FED659 0%, #BE8011 100%);
+    color: #141414;
+    text-decoration: none;
+    border-radius: 25px;
+    font-family: "Jost", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+}
+
+.instagram-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(254, 214, 89, 0.4);
+    color: #141414;
+    text-decoration: none;
+}
+
+/* Instagram Section Animation Triggers */
+.animate-instagram .instagram-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.animate-instagram .instagram-heading {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+.animate-instagram .instagram-heading::after {
+    width: 80%;
+}
+
+.animate-instagram .instagram-subheading {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-instagram .instagram-subheading::before {
+    opacity: 1;
+    transform: translateY(-50%) scale(1) rotate(0deg);
+}
+
+.animate-instagram .instagram-para {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.animate-instagram .instagram-para::before {
+    height: 100%;
+}
+
+.animate-instagram .instagram-embed-container {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+
+
+@keyframes instagramFloatElement {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateY(-35px) scale(1.4);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-60px) scale(1.2);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translateY(-30px) scale(1.6);
+        opacity: 1;
+    }
+}
+
+/* Responsive Instagram Section */
+@media screen and (max-width: 768px) {
+    .instagram-section {
+        padding: 60px 0;
+    }
+
+    .instagram-heading {
+        font-size: 1.8rem;
+    }
+
+    .instagram-subheading {
+        font-size: 1.3rem;
+    }
+
+    .instagram-para {
+        font-size: 1rem;
+    }
+
+    .instagram-iframe {
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .instagram-section {
+        padding: 40px 0;
+    }
+
+    .instagram-heading {
+        font-size: 1.5rem;
+    }
+
+    .instagram-subheading {
+        font-size: 1.1rem;
+    }
+
+    .instagram-para {
+        font-size: 0.95rem;
+    }
+
+    .instagram-iframe {
+        height: 400px;
+    }
+
+    .instagram-fallback {
+        padding: 40px 20px;
+    }
 }
