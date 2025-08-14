@@ -323,27 +323,6 @@ const Home = () => {
             {/* ! Scrollable Text Section */}
             <ScrollableText />
 
-            <div className='contact-section'>
-                <div className='container'>
-                    <div className='row'>
-                        <div className='col-12'>
-                            <div className='contact-content'>
-                                <h2 className='contact-heading'>Do Follow Us On Instagram For All Latest Updates On Upcoming Events</h2>
-                                <div className='social-buttons'>
-                                    <button className='social-btn facebook-btn'>
-                                        <i className='fab fa-facebook-f social-icon'></i>
-                                        <span className='social-text'>FOLLOW ELYSIUM ON FACEBOOK</span>
-                                    </button>
-                                    <button className='social-btn instagram-btn'>
-                                        <i className='fab fa-instagram social-icon'></i>
-                                        <span className='social-text'>FOLLOW ELYSIUM ON INSTAGRAM</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             {/* ! Footer Section */}
             <Footer />
