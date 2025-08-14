@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll-Triggered Animations Demo</title>
+    <style>
+        /* Demo styles to show the animation system */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #F5F1DA;
+        }
+
+        .demo-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .about-section {
+            background: #141414;
+        }
+
+        .event-section {
+            background: #000000;
+        }
+
+        .menu-section {
+            background: #000000;
+        }
+
+        .gallery-section {
+            background: #141414;
+        }
+
+        .contact-section {
+            background: #141414;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-content {
+            max-width: 600px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        .section-heading {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(3px);
+            transition: all 1.2s ease-out;
+        }
+
+        .section-subheading {
+            font-size: 1.5rem;
+            color: #FED659;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 1s ease-out;
+        }
+
+        .section-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(40px);
+            filter: blur(2px);
+            transition: all 1.2s ease-out;
+        }
+
+        /* Animation trigger classes */
+        .animate-about .section-content,
+        .animate-event .section-content,
+        .animate-menu .section-content,
+        .animate-gallery .section-content,
+        .animate-contact .section-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-about .section-heading,
+        .animate-event .section-heading,
+        .animate-menu .section-heading,
+        .animate-gallery .section-heading,
+        .animate-contact .section-heading {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        .animate-about .section-subheading,
+        .animate-event .section-subheading,
+        .animate-menu .section-subheading,
+        .animate-gallery .section-subheading,
+        .animate-contact .section-subheading {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-about .section-text,
+        .animate-event .section-text,
+        .animate-menu .section-text,
+        .animate-gallery .section-text,
+        .animate-contact .section-text {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        /* Staggered delays */
+        .animate-about .section-heading { transition-delay: 0.1s; }
+        .animate-about .section-subheading { transition-delay: 0.2s; }
+        .animate-about .section-text { transition-delay: 0.3s; }
+
+        .animate-event .section-heading { transition-delay: 0.1s; }
+        .animate-event .section-subheading { transition-delay: 0.2s; }
+        .animate-event .section-text { transition-delay: 0.3s; }
+
+        .animate-menu .section-heading { transition-delay: 0.1s; }
+        .animate-menu .section-subheading { transition-delay: 0.2s; }
+
+        .animate-gallery .section-heading { transition-delay: 0.1s; }
+        .animate-gallery .section-subheading { transition-delay: 0.2s; }
+
+        .animate-contact .section-heading { transition-delay: 0.1s; }
+        .animate-contact .section-content { transition-delay: 0.2s; }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(254, 214, 89, 0.9);
+            color: #000;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-indicator">
+        Scroll down to see animations!
+    </div>
+
+    <!-- Hero Section -->
+    <section class="demo-section hero-section">
+        <h1 class="section-title">Elysium Restaurant</h1>
+        <p style="font-size: 1.2rem; color: #FED659;">Scroll down to experience our scroll-triggered animations</p>
+    </section>
+
+    <!-- About Section -->
+    <section class="demo-section about-section">
+        <div class="section-content">
+            <h2 class="section-heading">Our Story</h2>
+            <h3 class="section-subheading">A Culinary Journey</h3>
+            <p class="section-text">
+                Welcome to Elysium, where culinary artistry meets timeless elegance. 
+                Our journey began with a simple dream: to create extraordinary dining 
+                experiences that transcend the ordinary.
+            </p>
+        </div>
+    </section>
+
+    <!-- Event Section -->
+    <section class="demo-section event-section">
+        <div class="section-content">
+            <h2 class="section-heading">Special Events</h2>
+            <h3 class="section-subheading">Celebrate with Us</h3>
+            <p class="section-text">
+                From intimate gatherings to grand celebrations, Elysium provides the perfect 
+                backdrop for your most memorable moments. Our dedicated team ensures every 
+                event is executed with precision and elegance.
+            </p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="demo-section menu-section">
+        <div class="section-content">
+            <h2 class="section-heading">Our Menu</h2>
+            <h3 class="section-subheading">Culinary Excellence</h3>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="demo-section gallery-section">
+        <div class="section-content">
+            <h2 class="section-heading">Gallery</h2>
+            <h3 class="section-subheading">Visual Feast</h3>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="demo-section contact-section">
+        <div class="section-content">
+            <h2 class="section-heading">Connect With Us</h2>
+            <p class="section-text">
+                Follow us on social media to stay updated with our latest offerings and events.
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.3, // Trigger when 30% of section is visible
+            rootMargin: '0px 0px -50px 0px' // Slight offset for better timing
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const section = entry.target;
+                    const sectionClass = section.className.split(' ')[0]; // Get first class name
+                    
+                    // Add animation class based on section type
+                    if (sectionClass.includes('about-section')) {
+                        section.classList.add('animate-about');
+                    } else if (sectionClass.includes('event-section')) {
+                        section.classList.add('animate-event');
+                    } else if (sectionClass.includes('menu-section')) {
+                        section.classList.add('animate-menu');
+                    } else if (sectionClass.includes('gallery-section')) {
+                        section.classList.add('animate-gallery');
+                    } else if (sectionClass.includes('contact-section')) {
+                        section.classList.add('animate-contact');
+                    }
+                    
+                    // Stop observing after animation is triggered
+                    observer.unobserve(section);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        const sections = document.querySelectorAll('.about-section, .event-section, .menu-section, .gallery-section, .contact-section');
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Update scroll indicator
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = Math.round((scrolled / maxScroll) * 100);
+            
+            const indicator = document.querySelector('.scroll-indicator');
+            indicator.textContent = `Scroll: ${scrollPercent}%`;
+        });
+    </script>
+</body>
+</html>

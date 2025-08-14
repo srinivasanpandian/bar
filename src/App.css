@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Fredoka:wght@300..700&family=Gabarito:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+
+
+/* ! variables */
+:root {
+  /* ! color */
+  --red-color: #EF2A25;
+  --red-2-color: #ff0000;
+  --red-3-color: #FF0303;
+  --red-4-color: #FE3737;
+  --red-5-color: #FF0505;
+  --red-6-color: #F03433;
+  --red-orange-color: #FA3808;
+  --yellow-color: #FFC700;
+  --green-color: #182F31;
+  --black-color: #000000;
+  --black-2-color: #231F20;
+  --black-3-color: #212121;
+  --white-color: #FFFFFF;
+  --white-2-color: #F8F8F8;
+  --gray-color: #555555;
+
+  /* ! font family */
+  --Inter: 'Inter', sans-serif;
+  --Baloo2: 'Baloo 2', sans-serif;
+  --Gabarito: 'Gabarito', sans-serif;
+  --Epilogue: 'Epilogue', sans-serif;
+  --IslandMoments: 'Island Moments', cursive;
+  --Lalezar: 'Lalezar', sans-serif;
+  --Oswald: 'Oswald', sans-serif;
+  --Nunito: 'Nunito', sans-serif;
+  --Poppins: 'Poppins', sans-serif;
+  --Archivo: 'Archivo', sans-serif;
+  --Montserrat: 'Montserrat', sans-serif;
+  --Fraunces: 'Fraunces', serif;
+  --MontserratAlternates: 'Montserrat Alternates', sans-serif;
+  --FredokaOne: 'Fredoka One', cursive;
+  --Jost: 'Jost', sans-serif;
+  --Josefin: 'Josefin Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+

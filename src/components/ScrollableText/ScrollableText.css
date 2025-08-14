@@ -1,0 +1,115 @@
+/* ================================================================ */
+/* Scrollable Text Section */
+.scrollable-text-section {
+    width: 100%;
+    padding: 35px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dynamic top border line */
+.scrollable-text-top-border {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 3.5px;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.scrollable-text-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.scrollable-text-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: max-content;
+    animation: scroll 48s linear infinite;
+}
+
+.scrollable-text {
+    display: flex;
+    white-space: nowrap;
+    padding: 0 60px;
+    gap: 40px;
+}
+
+.scrollable-text span {
+    font-family: "Jost", sans-serif;
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: transparent;
+    text-shadow: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.scrollable-text span:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Scrollable Text Section Responsive */
+@media screen and (max-width: 768px) {
+    .scrollable-text-top-border{
+        width: 90%;
+        height: 2.3px;
+    }
+    .scrollable-text-section {
+        padding: 30px 0;
+    }
+
+    .scrollable-text span {
+        font-size: 4rem;
+        letter-spacing: 0.15em;
+    }
+
+    .scrollable-text {
+        padding: 0 40px;
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .scrollable-text-top-border{
+        width: 85%;
+        height: 1.8px;
+    }
+    .scrollable-text-section {
+        padding: 25px 0;
+    }
+
+    .scrollable-text span {
+        font-size: 2.2rem;
+        letter-spacing: 0.1em;
+    }
+
+    .scrollable-text {
+        padding: 0 30px;
+        gap: 25px;
+    }
+}
